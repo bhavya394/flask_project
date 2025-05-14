@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analytics - Market Insights</title>
+    <style>
+        body {
+          font-family: 'Segoe UI', sans-serif;
+          background-color: #f8f9fa;
+          padding: 40px;
+          color: #333;
+        }
+        .container {
+          max-width: 900px;
+          margin: auto;
+          background: #fff;
+          padding: 30px 40px;
+          border-radius: 10px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h2 {
+          text-align: center;
+          color: #343a40;
+          margin-bottom: 30px;
+        }
+        h3 {
+          margin-top: 30px;
+          color: #007bff;
+        }
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 10px;
+        }
+        th, td {
+          padding: 10px;
+          border: 1px solid #dee2e6;
+          text-align: left;
+        }
+        th {
+          background-color: #e9ecef;
+        }
+        p {
+          margin: 10px 0;
+        }
+        a {
+          display: inline-block;
+          margin-top: 30px;
+          color: #007bff;
+          text-decoration: none;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>View-based Results</h2>
+
+    <h3>Top 3 Items by Revenue (Q1)</h3>
+    <table>
+        <tr><th>Item Name</th><th>Total Revenue</th></tr>
+        {% for name, revenue in results.q1 %}
+        <tr><td>{{ name }}</td><td>${{ revenue }}</td></tr>
+        {% endfor %}
+    </table>
+
+    <h3>Items Sold > 50 Units (Q2)</h3>
+    <table>
+        <tr><th>Item Name</th><th>Total Quantity Sold</th></tr>
+        {% for name, qty in results.q2 %}
+        <tr><td>{{ name }}</td><td>{{ qty }}</td></tr>
+        {% endfor %}
+    </table>
+
+    <h3>Top Customer by Loyalty Score (Q3)</h3>
+    {% if results.q3 %}
+    <p>Customer name:<strong>{{ results.q3[0] }}</strong> with a loyalty score of <strong>{{ results.q3[1] }}</strong></p>
+    {% else %}
+    <p>No top customer found.</p>
+    {% endif %}
+
+    <h3>Customers with Loyalty Score Between 4 and 5 (Q4)</h3>
+    <table>
+        <tr><th>Customer Name</th><th>Loyalty Score</th></tr>
+        {% for name, score in results.q4 %}
+        <tr><td>{{ name }}</td><td>{{ score }}</td></tr>
+        {% endfor %}
+    </table>
+
+    <h3>Total Revenue from All Items (Q5)</h3>
+    <p>Total revenue generated:<strong>${{ results.q5[0] }}</strong></p>
+
+    <a href="/">← Back to Home</a>
+</div>
+</body>
+</html>

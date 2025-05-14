@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Product</title>
+    <style>
+        body {
+          font-family: 'Segoe UI', sans-serif;
+          background-color: #f8f9fa;
+          padding: 50px;
+          margin: 0;
+          color: #333;
+        }
+
+        .container {
+          max-width: 500px;
+          margin: auto;
+          background-color: #ffffff;
+          padding: 40px;
+          border-radius: 10px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+          text-align: center;
+        }
+
+        h2 {
+          color: #343a40;
+          margin-bottom: 25px;
+        }
+
+        button {
+          padding: 12px 20px;
+          background-color: #dc3545;
+          color: white;
+          border: none;
+          border-radius: 6px;
+          font-weight: bold;
+          cursor: pointer;
+          width: 100%;
+        }
+
+        button:hover {
+          background-color: #b52a35;
+        }
+
+        p {
+          margin-top: 20px;
+          font-weight: bold;
+          color: #444;
+        }
+
+        a {
+          margin-top: 30px;
+          display: inline-block;
+          text-decoration: none;
+          color: #007bff;
+        }
+
+        a:hover {
+          text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Delete Product: Almond Nuts (iId = 101)</h2>
+    <form method="post">
+        <button type="submit">Delete Product</button>
+    </form>
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
+    <a href="/">← Back to Home</a>
+</div>
+</body>
+</html>
